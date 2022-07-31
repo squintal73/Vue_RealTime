@@ -17,4 +17,17 @@ class ChatController extends Controller
     return view('chat.index');
     }
 
+    public function store(Request $Resquest)
+    {
+
+        $messages = auth()->user()->messages()->create([
+                   'body' => $Resquest->body
+
+        ]);
+
+       return response()->json($message, 201);
+    }
+
+    // TESTE PARA COMMIT
+
 }
